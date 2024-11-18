@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'todos/css/inicio.css' %}">
+    <script src="https://kit.fontawesome.com/13d0897c8c.js" crossorigin="anonymous"></script>
+    <title>Início</title>
+</head>
+<body>
+    
+    
+    <header>
+        <h1>FutStyle</h1> <!--título do site-->
+        <div id="botao"> <!--conteiner para os dropdown-->
+            <a href="{% url 'carrinho'%}" class="link1"><i class="fa-solid fa-cart-shopping"></i><!--ícone-carrinho--></a>
+            <a href="#" class="link1"><i class="fa-solid fa-phone"></i></a>
+                
+            <a href="{% url 'login'%}" class="link2"><i class="fa-solid fa-user"></i></a> <!--dropdown-->
+        </div>
+        <div class="i1"><!--conteiner para input e button com ícone-->
+            <button><i class="fa-solid fa-magnifying-glass"></i><!--ìcone-lupa--></button>
+            <input 
+                type="text" 
+                id="barra-pesquisa" 
+                placeholder="O que você está buscando" 
+                oninput="filterItems()"
+            />
+        </div>
+        <hr>
+        <div class="caixa1"></div>
+</header> 
+<!--FIM-->
+
+
+<!--ÁREA PRINCIPAL-->
+<main> 
+    <section class="vitrine"> <!--agrupamento -->
+
+        <!--cada div vai ter um produto-->
+
+        <div class="item" data-nome="Produto 1"> <!--data- é usado para dados personalizado -->
+            <img src="{% static 'todos/img/camisa1.jpg'%}" alt="Produto 1"> 
+            <h3>Camisa</h3><br>
+            <p class="preco">R$ 60,00</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="item" data-nome="Produto 2">
+            <img src="{% static 'todos/img/camisa-sport-1.jpg' %}" alt="Produto 2"> 
+            <h3>Camisa Sport Clube preta</h3><br>
+            <p class="preco">R$ 300,00</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="item" data-nome="Produto 3">
+            <img src="{% static 'todos/img/camisa-sport-2.jpg' %}" alt="Produto 3">
+            <h3>Camisa Sport Clube Branca</h3><br>
+            <p class="preco">R$ 279,99</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="item" data-nome="Produto 4">
+            <img src="{% static 'todos/img/camisa-vasco-1.jpg' %}" alt="Produto 4">
+            <h3>Camisa Vasco Branca</h3><br>
+            <p class="preco">R$ 120,99</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="item" data-nome="Produto 5">
+            <img src="{% static 'todos/img/camisa-brasil.jpg'%}" alt="Produto 4">
+            <h3>Camisa Brasil</h3><br>
+            <p class="preco">R$ 120,99</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+        <div class="baixo">
+        <div class="item" data-nome="Produto 6">
+            <img src="{% static 'todos/img/camisa-realmadrid.jpg'%}" alt="Produto 4">
+            <h3>Camisa Real Madrid</h3><br>
+            <p class="preco">R$ 120,99</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+        <div class="item" data-nome="Produto7">
+            <img src="{% static 'todos/img/camisa-paris.jpg'%}" alt="Produto 4">
+            <h3>Camisa paris saint-germain </h3><br>
+            <p class="preco">R$ 120,99</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+        <div class="item" data-nome="Produto 8">
+            <img src="{% static 'todos/img/camisa-barcelona.jpg'%}" alt="Produto 4">
+            <h3>Camisa Barcelona</h3><br>
+            <p class="preco">R$ 120,99</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+        <div class="item" data-nome="Produto 9">
+            <img src="{% static 'todos/img/camisa-juventus.jpg'%}" alt="Produto 4">
+            <h3>Camisa Juventus</h3><br>
+            <p class="preco">R$ 120,99</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+        <div class="item" data-nome="Produto 10">
+            <img src="{% static 'todos/img/camisa-arsenal.jpg'%}" alt="Produto 4">
+            <h3>Camisa Arsenal</h3><br>
+            <p class="preco">R$ 120,99</p> <br>
+            <button class="botão">Adicionar ao Carrinho</button>
+        </div>
+        </div>
+    </section>
+</main>
+<!--FIM-->
+
+
+<!--RODAPÉ-->
+<footer>
+    <p>&copy; 2024 Foot&Style</p>
+</footer>
+<!--FIM-->
+
+
+<script src=".. /js/inicio.js"></script>
+
+</body>
+</html>

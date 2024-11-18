@@ -1,0 +1,41 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Online</title>
+    <link rel="stylesheet" href="{% static 'todos/css/carrinho.css'%}">
+</head>
+<body>
+    <header>
+        <h1>Loja Online</h1>
+        <button onclick="toggleCart()">Ver Carrinho (<span id="cart-count">0</span>)</button>
+    </header>
+
+    <main>
+        <section class="produtos">
+            <div class="produto" data-id="1" data-nome="Produto 1" data-preco="60">
+                <h3>Produto 1</h3>
+                <p>Preço: R$ 60,00</p>
+                <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto" data-id="2" data-nome="Produto 2" data-preco="120">
+                <h3>Produto 2</h3>
+                <p>Preço: R$ 120,00</p>
+                <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+
+        <section id="carrinho" class="carrinho hidden">
+            <h2>Seu Carrinho</h2>
+            <div id="cart-items"></div>
+            <p>Total: R$ <span id="cart-total">0.00</span></p>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+        </section>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+}
+
+/* esses comandos deixa os elementos centralizados  */
+
+div{
+    display: flex;
+    flex-direction: column; /* alinha os elementos verticalmente*/
+    align-items: center;/*centraliza o conteúdo*/
+}
+h1, p{
+    color: white;
+    font-size: 18px;
+    text-align: center; /*centraliza os elementos h1 e p */
+}
+label{
+    color: white;
+    font-size: 13px; /*tamanho da font*/
+}
+.form{
+    display: flex;/*deixa os elementos flexives*/
+    flex-direction: column; /*os elementos fica no formato coluno*/
+    align-items: flex-start; /*alinha a esquerda*/
+    gap: 10px; /* espaço entre os elementos */
+}
+input, button{
+    width: 100%;/* Faz com que os inputs ocupem toda a largura do form */
+    max-width: 300px;/* Limita a largura máxima dos inputs */
+}
+button{
+    position: relative;
+    top: 20px;      /* Move o botão 10px para baixo */
+    left: 34px;
+    width: 60%;
+    height: 34px;
+    align-self: center; /*centraliza o botão*/
+}
+/* final */
+
+/* cria um fundo no menu  */
+.cadastro{
+    position: absolute;
+    left: 35%;
+    background-color: blue;
+    width: 400px;
+    height: 430px;
+}
+@media (max-width: 450px){
+    .cadastro{
+        width: 75%;
+        height: auto;
+        padding: 20px;
+        left: 35px;
+        top: 60px;
+    }
+    h1{
+        font-size: 40px;
+    }
+    p{
+        font-size: 21px;
+    }
+    label{
+        font-size: 17px;
+    }
+    button{
+        top: 10px;
+        font-size: 18px;
+    }
+  
+}

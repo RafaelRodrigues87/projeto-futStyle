@@ -1,0 +1,70 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+div{
+    display: flex;
+    flex-direction: column; /* alinha os elementos verticalmente*/
+    align-items: center;/*centraliza o conteúdo*/
+}
+h1, p{
+    position: relative;
+    top: 26px;
+    color: white;
+    font-size: 18px;
+    text-align: center; /*centraliza os elementos h1 e p */
+}
+p{
+    position: relative;
+    top: 16px;
+}
+
+label{
+    color: white;
+    font-size: 13px; /*tamanho da font*/
+}
+.form{
+    display: flex;/*deixa os elementos flexives*/
+    flex-direction: column; /*os elementos fica no formato coluno*/
+    align-items: flex-start; /*alinha a esquerda*/
+    gap: 10px; /* espaço entre os elementos */
+}
+input, button, label{
+    position: relative;
+    top: 20px;
+    width: 100%;/* Faz com que os inputs ocupem toda a largura do form */
+    max-width: 300px;/* Limita a largura máxima dos inputs */
+}
+button{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    transition: 0.3s;
+    position: relative;
+    top: 33px;      /* Move o botão 10px para baixo */
+    left: 34px;
+    width: 60%;
+    height: 34px;
+    align-self: center; /*centraliza o botão*/
+}
+button:hover{
+    color: aliceblue;
+    background-color:rgb(16, 119, 255) ;
+}
+.login{
+    position: absolute;
+    left: 35%;
+    background-color: rgb(0, 0, 0);
+    width: 400px;
+    height: 430px;
+}
+.crie{
+    position: relative;
+    top: 32px;
+    font-size: 15px;
+}
+.link1{
+    color: rgb(38, 38, 218);
+    position: relative;
+    top: 20px;
+    font-size: 14px;
+}
