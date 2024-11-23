@@ -78,13 +78,13 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': 'futstyle',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'NAME': BASE_DIR / 'db.sqlite3',
+        # # 'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': 'FutStyle',
+        # 'USER': 'root',
+        # 'PASSWORD': 'Rafael1509',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '3306'
     }
 }
 
@@ -128,7 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'todos/static')
 ]
 
 # Default primary key field type

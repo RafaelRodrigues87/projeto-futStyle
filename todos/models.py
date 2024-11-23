@@ -1,3 +1,3 @@
-from django.db import models # type: ignore
-
-# Create your models here.
+from django.db import models 
+from .models_cliente import Cliente
+from .models_produto import Produto

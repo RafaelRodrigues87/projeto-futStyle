@@ -27,15 +27,12 @@ def logado(request):
 
 def verificar_conexao(request):
     try:
-        # Verifica a conexão com o banco de dados executando uma consulta simples
+        # Testa a conexão com o banco
         with connection.cursor() as cursor:
-            cursor.execute("SELECT 1")
-            result = cursor.fetchone()  # Executa o comando e obtém o resultado
-            if result:
-                return HttpResponse("Conexão com o banco de dados bem-sucedida!")
-            else:
-                return HttpResponse("Falha na conexão com o banco de dados.")
+            cursor.execute("SELECT 1")  # Executa um comando básico
+        return HttpResponse("Conexão com o banco de dados bem-sucedida!", status=200)
     except Exception as e:
-        return HttpResponse(f"Erro ao tentar conectar: {str(e)}")
+        # Caso haja erro, retorna a mensagem com o código de erro
+        return HttpResponse(f"Erro ao conectar ao banco de dados: {str(e)}", status=500)
 
 

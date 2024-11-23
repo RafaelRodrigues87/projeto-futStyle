@@ -32,3 +32,5 @@ class Produto:
     @property
     def Descricao(self):
         return self._descricao
+    
+Preco = 500

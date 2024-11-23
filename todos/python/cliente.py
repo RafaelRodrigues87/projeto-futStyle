@@ -1,5 +1,4 @@
-
-
+from produto import Preco
 class Cliente:
     def __init__(self, cliente_id, cliente_nome, endereco, telefone, email, cpf, data_nascimento, data_cadastro, password, saldo):
         self.cliente_id = cliente_id    
@@ -8,10 +7,10 @@ class Cliente:
         self.telefone = telefone
         self._email =  email
         self._cpf = cpf
+        self.data_nascimento = data_nascimento
         self.data_cadastro = data_cadastro
         self._password = self._hash_password(password)
         self._saldo = saldo
-
 
     @property
     def saldo(self):
@@ -53,3 +52,14 @@ class Cliente:
 
     def verify_password(self, password):
         return self._password == self._hash_password(password)
+
+class ClienteVip(Cliente):
+    def __init__(self, cliente_id, cliente_nome, endereco, telefone, email, cpf, data_nascimento, data_cadastro, password, saldo, beneficios):
+        # Chama o construtor da classe pai (Cliente)
+        super().__init__(cliente_id, cliente_nome, endereco, telefone, email, cpf, data_nascimento, data_cadastro, password, saldo)
+        self.beneficios = beneficios  # Atributo exclusivo para ClienteVip
+
+    def Desconto(self):
+       return Preco - (Preco * 0.1)
+    
+print(ClienteVip.Desconto(Preco))
