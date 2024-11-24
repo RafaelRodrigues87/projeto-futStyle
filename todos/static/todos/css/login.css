@@ -1,6 +1,9 @@
 *{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+body{
+    background-color: rgb(26, 25, 25)
+}
 div{
     display: flex;
     flex-direction: column; /* alinha os elementos verticalmente*/
@@ -34,6 +37,9 @@ input, button, label{
     width: 100%;/* Faz com que os inputs ocupem toda a largura do form */
     max-width: 300px;/* Limita a largura máxima dos inputs */
 }
+input{
+    border: 0.2 solid black;
+}
 button{
     background-color: rgb(255, 255, 255);
     border: none;
@@ -47,24 +53,43 @@ button{
     align-self: center; /*centraliza o botão*/
 }
 button:hover{
-    color: aliceblue;
+    color: white;
     background-color:rgb(16, 119, 255) ;
+    box-shadow: 3px 0px 14px rgba(1, 206, 206, 0.3);
 }
+
 .login{
     position: absolute;
     left: 35%;
-    background-color: rgb(0, 0, 0);
+    background: rgb(8, 87, 34);
+    border: 2.5px solid white;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgb(83, 91, 192) -10%, rgb(37, 65, 117) 90%);
     width: 400px;
     height: 430px;
+    top: 70px;
 }
 .crie{
     position: relative;
     top: 32px;
     font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+a{
+    position: relative;
+    top: 20px;
+    color: rgb(255, 255, 255);
 }
 .link1{
-    color: rgb(38, 38, 218);
+    color: rgb(5, 4, 4);
     position: relative;
     top: 20px;
     font-size: 14px;
+}
+.voltar{
+    text-decoration: none;
+    position: relative;
+    top: -387px;
+    left: -643px;
+    font-size: 20px;
 }

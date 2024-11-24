@@ -1,9 +1,10 @@
 from django.db import models 
 from django.contrib.auth.hashers import make_password
+from .models_produto import Produto
 # Create your models here.
 
 class Cliente(models.Model):
-    cliente_id = models.AutoField(primary_key=True)
+    cliente_id = models.AutoField( primary_key=True)
     cliente_nome = models.CharField(max_length=255)
     endereco = models.TextField()
     telefone = models.CharField(max_length=15)
@@ -12,7 +13,7 @@ class Cliente(models.Model):
     data_nascimento = models.DateField()
     data_cadastro = models.DateTimeField(auto_now_add=True)
     password = models.CharField(max_length=128)
-    _saldo = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    _saldo = models.DecimalField(null=True, max_digits=10, decimal_places=2, default=500.00)
 
     @property
     def saldo(self):
@@ -33,6 +34,7 @@ class ClienteVip(Cliente):
     def desconto(self, produto):
         # Verificando se o produto é uma instância da classe Produto
         if isinstance(produto, Produto):
-            return produto.preco - (produto.preco * 0.1)
+            return Produto.preco - (Produto.preco * 0.1)
         else:
             raise ValueError("O argumento deve ser uma instância de Produto.")
+        

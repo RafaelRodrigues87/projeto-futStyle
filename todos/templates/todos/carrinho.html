@@ -1,6 +1,5 @@
 {% load static%}
 
- <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'todos/css/carrinho.css'%}">
 </head>
 <body>
-    <!-- <header>
+    <header>
         <h1>Loja Online</h1>
         <button onclick="toggleCart()">Ver Carrinho (<span id="cart-count">0</span>)</button>
     </header>
@@ -36,44 +35,7 @@
         </section>
     </main>
 
-    <script src="../script.js"></script> -->
-
-
-    <h1>Meu Carrinho</h1>
-
-    {% if itens %}
-    <table>
-        <thead>
-            <tr>
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>Preço</th>
-                <th>Subtotal</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in itens %}
-            <tr>
-                <td>{{ item.produto.nome }}</td>
-                <td>{{ item.quantidade }}</td>
-                <td>{{ item.produto.preco }}</td>
-                <td>{{ item.subtotal }}</td>
-                <td>
-                    <a href="{% url 'remover_do_carrinho' item.id %}">Remover</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <p>Seu carrinho está vazio.</p>
-    {% endif %}
-    
-
-
-
-
+    <script src="../script.js"></script>
 
 
 
