@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect # type: ignore
 from django.db import connection
 from django.http import HttpResponse
-from .forms import ClienteForm
-from .models import Cliente
+# from .forms import ClienteForm, ProdutoForm
+from .models import Cliente, Produto
 
 #funcao que define as rotas
 
@@ -25,27 +25,21 @@ def criar(request):
 def logado(request):
     return render()
 
+def produto(request):
+    return render(request, 'todos/produto.html')
 
 def verificar_conexao(request):
     try:
         # Testa a conexão com o banco
         with connection.cursor() as cursor:
-            cursor.execute("SELECT 1")  # Executa um comando básico
-        return HttpResponse("Conexão com o banco de dados bem-sucedida!", status=200)
+            cursor.execute("DELETE FROM todos_produto WHERE codproduto = 2;")  # Executa um comando básico
+        return HttpResponse("Remocao de dados bem sucecido", status=200)
     except Exception as e:
         # Caso haja erro, retorna a mensagem com o código de erro
         return HttpResponse(f"Erro ao conectar ao banco de dados: {str(e)}", status=500)
     
 
-# def cadastro(request):
-#     if request.method == 'POST':
-#         form = CLienteForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('home') 
-
-
-
+# cadastrar cliente
 def cadastro(request):
     if request.method == 'POST':
         # Captura os dados do formulário via POST
@@ -82,3 +76,31 @@ def cadastro(request):
 
     # Se a requisição for GET, apenas exibe o formulário vazio
     return render(request, 'todos/criar.html')
+
+#castrar produto
+
+def cadastrar_produto(request):
+    if request.method == 'POST':
+        produto_nome = request.POST.get('produto_nome')
+        preco = request.POST.get('preco')
+        produto_quantidade = request.POST.get('produto_quantidade')
+        descricao = request.POST.get('descricao')
+        imagem_url = request.POST.get('imagem_url')
+
+        # Aqui você poderia criar manualmente o produto
+        produto = Produto(
+            produto_nome=produto_nome,
+            preco=preco,
+            produto_quantidade=produto_quantidade,
+            descricao=descricao,
+            imagem_url=imagem_url
+        )
+        produto.save()
+        return redirect('home')
+
+    return render(request, 'todos/produtos.html')
+
+#lista todos os produtos do banco
+def listar_produtos(request):
+    produtos = Produto.objects.all().order_by('codproduto')  # Todos os produtos ordenados
+    return render(request, 'todos/home.html', {'produtos': produtos})

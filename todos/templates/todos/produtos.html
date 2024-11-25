@@ -1,0 +1,51 @@
+{% load static %}
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'todos/css/produtos.css' %}">
+    <title>Cadastro de Produto</title>
+</head>
+<body>
+
+    <header>
+        <h1>Cadastro de Produto</h1>
+    </header>
+
+    <main>
+        <!-- Formulário para Cadastro de Produto -->
+        <form method="POST" action="{% url 'produtos' %}">
+            {% csrf_token %}
+
+            <!-- Nome do Produto -->
+            <label for="produto_nome">Nome do Produto:</label><br>
+            <input type="text" id="produto_nome" name="produto_nome" maxlength="80" required><br><br>
+
+            <!-- Preço -->
+            <label for="preco">Preço:</label><br>
+            <input type="number" step="0.01" id="preco" name="preco" required><br><br>
+
+            <!-- Quantidade -->
+            <label for="produto_quantidade">Quantidade:</label><br>
+            <input type="number" id="produto_quantidade" name="produto_quantidade" required><br><br>
+
+            <!-- Descrição -->
+            <label for="descricao">Descrição:</label><br>
+            <textarea id="descricao" name="descricao" rows="4" cols="50" required></textarea><br><br>
+
+            <!-- Imagem URL -->
+            <label for="imagem_url">URL da Imagem:</label><br>
+            <input type="url" id="imagem_url" name="imagem_url"  maxlength="250"><br><br>
+            
+            <!-- Botão para Enviar -->
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy;2024 FutStyle</p>
+    </footer>
+
+</body>
+</html>

@@ -2,24 +2,29 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 body{
-    background-color: rgb(26, 25, 25)
+    background: linear-gradient(to left, #a8d8ea, #1e3a8a);
 }
+    
 div{
     display: flex;
     flex-direction: column; /* alinha os elementos verticalmente*/
     align-items: center;/*centraliza o conteúdo*/
 }
+
 h1, p{
     position: relative;
     top: 26px;
-    color: white;
-    font-size: 18px;
+    color:#fff;
+    
+    font-size: 24px;
     text-align: center; /*centraliza os elementos h1 e p */
+    
 }
 p{
     position: relative;
     top: 16px;
 }
+
 
 label{
     color: white;
@@ -39,6 +44,16 @@ input, button, label{
 }
 input{
     border: 0.2 solid black;
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 8px; /* Espaço interno */
+    font-size: 14px; /* Tamanho da fonte */
+    border: 2px solid #ccc; /* Cor da borda */
+    border-radius: 8px; /* Bordas arredondadas */
+    background-color: #fff; /* Fundo branco */
+    color: #333; /* Cor do texto */
+    box-sizing: border-box; /* Para garantir que o padding não afete a largura */
+    transition: all 0.3s ease; /* Transição suave para interações */
+
 }
 button{
     background-color: rgb(255, 255, 255);

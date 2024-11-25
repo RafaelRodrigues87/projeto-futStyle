@@ -17,7 +17,7 @@
         <div id="botao"> <!--conteiner para os dropdown-->
             <a href="{% url 'carrinho'%}" class="link1"><i class="fa-solid fa-cart-shopping"></i><!--ícone-carrinho--></a>
             <a href="#" class="link1"><i class="fa-solid fa-phone"></i></a>
-                
+            <a href="{% url 'produtos'%}" class="link3"><i class="fa-solid fa-boxes-stacked"></i></a>
             <a href="{% url 'login'%}" class="link2"><i class="fa-solid fa-user"></i></a>
         </div>
         <div class="i1"><!--conteiner para input e button com ícone-->
@@ -34,26 +34,26 @@
 </header> 
 <!--FIM-->
 
-
 <!--ÁREA PRINCIPAL-->
 <main> 
     <section class="vitrine"> <!--agrupamento -->
 
         <!--cada div vai ter um produto-->
 
-        <div class="item" data-nome="camisa"> <!--data- é usado para dados personalizado -->
-            <img src="{% static 'todos/img/camisa1.jpg'%}" alt="Produto 1"> 
-            <h3>Camisa</h3><br>
-            <p class="preco">R$ 60,00</p> <br>
-            <button onclick="adicionarAoCarrinho({{ produto.id }})">Adicionar ao Carrinho</button>
+        <div class="item" data-nome="{{ produtos.0.produto_nome }}"> <!--data- é usado para dados personalizado -->
+            <img src="{{ produtos.0.imagem_url}} alt="Produto 1"> 
+            <h3>{{ produtos.0.produto_nome}}</h3>
+            <h4> {{ produtos.0.descricao}}</h4><br> 
+            <p class="preco">R$ {{produtos.0.preco}}<br> <p class="quant">{{produtos.0.produto_quantidade}} em estoque!</p></p> <br>
+            <button onclick="adicionarAoCarrinho({{ produtos.codproduto }})">Adicionar ao Carrinho</button>
 
         </div>
 
-        <div class="item" data-nome="sport">
-            <img src="{% static 'todos/img/camisa-sport-1.jpg' %}" alt="Produto 2"> 
-            <h3>Camisa Sport Clube preta</h3><br>
-            <p class="preco">R$ 300,00</p> <br>
-            <button class="botão">Adicionar ao Carrinho</button>
+        <div class="item" data-nome="{{ produtos.1.produto_nome}}">
+            <img src="{{produtos.1.imagem_url}}" alt="Produto 2"> 
+            <h3>{{produtos.1.produto_nome}}</h3><br>
+            <p class="preco">R$ {{produtos.1.preco}}<br> <p class="quant">{{produtos.1.produto_quantidade}} em estoque!</p></p> <br>
+            <button onclick="adicionarAoCarrinho({{ produtos.codproduto }})">Adicionar ao Carrinho</button>
         </div>
 
         <div class="item" data-nome="sport">

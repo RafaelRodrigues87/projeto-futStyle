@@ -6,9 +6,8 @@
 /* esses comandos deixa os elementos centralizados  */
 
 body{
-    background-color: rgb(26, 25, 25)
+    background: linear-gradient(to left, #a8d8ea, #1e3a8a);
 }
-
 div{
     display: flex;
     flex-direction: column; /* alinha os elementos verticalmente*/
@@ -36,12 +35,24 @@ label{
     flex-direction: column; /*os elementos fica no formato coluno*/
     align-items: flex-start; /*alinha a esquerda*/
     gap: 10px; /* espaço entre os elementos */
+  
 }
 input{
     border: 0.2px solid rgb(0, 0, 0);
     margin-bottom: 2px;
+    border: 0.2 solid black;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
     
 }
+
 input, label{
     position: relative;
     top: -16px;
