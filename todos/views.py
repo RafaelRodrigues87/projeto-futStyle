@@ -217,6 +217,9 @@ def aplicar_desconto(request):
     desconto = 0
     if codigo_desconto == "DESCONTO10":
         desconto = 10  # Exemplo de desconto fixo de 10 reais
+    
+    if codigo_desconto == "20":
+        desconto = 20
 
     # Calculando o total do carrinho
     total_carrinho = sum(item['preco'] * item['quantidade'] for item in carrinho.values())
@@ -232,3 +235,17 @@ def aplicar_desconto(request):
         'total_com_desconto': total_com_desconto
     })
 
+def atualizar_telefone(request, cliente_id, novo_telefone):
+   # SQL para atualizar o telefone
+    sql = """
+    UPDATE todos_cliente
+    SET telefone = %s
+    WHERE cliente_id = %s;
+    """
+    valores = (novo_telefone, cliente_id)
+
+    with connection.cursor() as cursor:
+        cursor.execute(sql, valores)
+
+    # Redireciona para a página "todos_clientes" após a atualização
+    return redirect("ver_cliente")

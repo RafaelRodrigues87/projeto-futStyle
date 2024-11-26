@@ -1,6 +1,6 @@
 from django.contrib import admin  # type: ignore
 from django.urls import path  # type: ignore
-from todos.views import aplicar_desconto, carrinho, login_view, remover_do_carrinho, ver_produtos, cadastro, cadastrar_produto, listar_produtos, adicionar_ao_carrinho, ver_cliente, deletar_cliente # Importando explicitamente as views
+from todos.views import aplicar_desconto, carrinho, login_view, remover_do_carrinho, ver_produtos, cadastro, cadastrar_produto, listar_produtos, adicionar_ao_carrinho, ver_cliente, deletar_cliente, atualizar_telefone # Importando explicitamente as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,7 +22,8 @@ urlpatterns = [
     #rota para deletar cliente
     path('deletar_cliente/<int:cliente_id>/',deletar_cliente, name='deletar_cliente'),
 
-    
+    #atualizar telefone
+    path('atualizar_telefone/<int:cliente_id>/<str:novo_telefone>/', atualizar_telefone, name='atualizar_telefone'),
     
     #rota da tela de acionar produto
     path('produtos/', cadastrar_produto, name="produtos"),

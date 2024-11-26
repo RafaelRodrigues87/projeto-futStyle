@@ -48,7 +48,11 @@
         <h3>Consultar Cliente</p>
             <a  class="botao" href="{% url 'ver_cliente' %}" class="bnt">Consultar</a>
             <h3>Excluir cliente</p>
-                <a  class="botao" href="{% url 'deletar_cliente' cliente_id=5 %}" class="bnt">Consultar</a>
+                <a  class="botao" href="{% url 'deletar_cliente' cliente_id=6 %}" class="bnt">Consultar</a>
+                <h3>editar telefone</p>
+                    <a href="{% url 'atualizar_telefone' cliente_id='4'   novo_telefone='123456789' %}">
+                        Atualizar Telefone
+                    </a>
     </div>
     <footer>
         <p>&copy;2024 FutStyle</p>
