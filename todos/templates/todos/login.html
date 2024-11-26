@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'todos/css/login.css'%}">
+    <link rel="stylesheet" href="{% static 'todos/css/login.css' %}">
     <script src="https://kit.fontawesome.com/13d0897c8c.js" crossorigin="anonymous"></script>
-    <title>login</title>
+    <title>Login</title>
 </head>
 <body>
-    <div class="login"> <!--conteiner para toda a tela de login-->
-        <h1 id='log'>LOGIN</h1>
-        <p>Digite seus dados!</p>
-        <div class="form"><!--conteiner para todo o formulário-->
-            <form action="usuario">
-                <label>Nome</label> <!-- Ela ajuda a identificar para o usuário o propósito de cada campo no formulário-->
-                <input type="text" id="nome" name="nome"><br> <!--input vai receber as informações-->
+    <div class="login">
+        <h1 id="log">Login</h1>
+        <p class="info">Por favor, insira seu e-mail e senha para acessar sua conta.</p>
+        <div class="form">
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required><br>
 
-                <label>Email</label>
-                <input type="email" id="email" name="email"><br>
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required><br>
 
-                <label>Senha</label>
-                <input type="password" id="senha" name="senha"><br>
-
-                <!-- Usando a tag <a> como botão -->
-                <button type="submit" class="btn">Entrar</button><!-- Correção do uso de url -->
+                <button type="submit" class="btn">Entrar</button>
             </form>
+
+<!-- Mensagens de erro -->
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p class="error">{{ message }}</p>
+            {% endfor %}
         </div>
-        <!--fim-form-->
-        <p class="crie">Crie uma conta se não tiver</p>
-        <a href="{% url 'cadastro' %}">Criar conta</a>
-        <a href="{% url 'home'%}" class="voltar"><i class="fa-solid fa-reply"></i></a> 
+        {% endif %}
+
+        </div>
+        <p class="crie1">Não tem uma conta?</p>
+        <a href="{% url 'cadastro' %}" class="crie2">Crie uma agora</a>
+        <a href="{% url 'home' %}" class="voltar" title="Voltar para a página inicial">
+            <i class="fa-solid fa-reply"></i>
+        </a>
     </div>
-    <!--FIM-LOGIN -->
 </body>
 </html>

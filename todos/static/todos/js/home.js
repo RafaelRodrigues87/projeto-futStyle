@@ -24,24 +24,25 @@ function filterItems() {
 
     // carrinho
 
-    function adicionarAoCarrinho(produtoId) {
-        fetch(`/carrinho/adicionar/${produtoId}/`, {
+    function adicionarAoCarrinho(codproduto) {
+        fetch(`/adicionar_ao_carrinho/${codproduto}/`, {
             method: 'POST',
             headers: {
-                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
-            }
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')  // Para segurança contra CSRF
+            },
         })
         .then(response => response.json())
-        .then(data => alert(data.message))
-        .catch(error => console.error('Erro:', error));
+        .then(data => {
+            if (data.success) {
+                alert('Produto adicionado ao carrinho!');
+            } else {
+                alert(data.message);  // Exibe uma mensagem de erro
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao adicionar produto ao carrinho.');
+        });
     }
-
-    function openLogin() {
-        document.getElementById('login-overlay').classList.add('active');
-    }
-    
-    function closeLogin() {
-        document.getElementById('login-overlay').classList.remove('active');
-    }
-    
     

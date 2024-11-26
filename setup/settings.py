@@ -120,6 +120,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+LOGIN_URL = '/login/'  # URL de login, caso o usuário não esteja autenticado
 
 
 # Static files (CSS, JavaScript, Images)

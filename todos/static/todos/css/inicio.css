@@ -6,7 +6,9 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     box-sizing: border-box;
 }
-
+body{
+    background-color:white
+}
 /* Estilo do cabeçalho */
 header h1 {
     font-size: 50px;

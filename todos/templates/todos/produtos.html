@@ -1,5 +1,5 @@
-{% load static %}
 
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -42,7 +42,14 @@
             <button type="submit">Cadastrar Produto</button>
         </form>
     </main>
-
+    <div class="caixa">
+        <h3>Consultar produto</p>
+        <a  class="botao" href="{% url 'ver_produtos' %}" class="bnt">Consultar</a>
+        <h3>Consultar Cliente</p>
+            <a  class="botao" href="{% url 'ver_cliente' %}" class="bnt">Consultar</a>
+            <h3>Excluir cliente</p>
+                <a  class="botao" href="{% url 'deletar_cliente' cliente_id=5 %}" class="bnt">Consultar</a>
+    </div>
     <footer>
         <p>&copy;2024 FutStyle</p>
     </footer>

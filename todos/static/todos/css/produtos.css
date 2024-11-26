@@ -1,32 +1,59 @@
-/* Todos os estilos básicos para o formulário */
+/* Estilos básicos para o formulário */
+* {
+    color: rgb(12, 11, 11);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(to left, #a8d8ea, #1e3a8a);
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Preenche toda a altura da tela */
+    flex-direction: column;
+    margin: 0;
 }
 
+/* Título do formulário */
 header h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-form {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+/* Container para o formulário e consulta */
+.form-consulta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Espaço entre o formulário e a caixa */
+    margin-top: 50px; /* Adiciona margem superior */
 }
 
+/* Formulário */
+form {
+    width: 480px;
+    border: 2px solid black;
+    padding: 20px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 0%, rgb(83, 91, 192) -10%, rgb(37, 65, 117) 90%);
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+/* Estilos para o campo do formulário */
 label {
+    position: relative;
+    left: 80px;
     font-size: 16px;
     font-weight: bold;
 }
 
 input[type="text"], input[type="number"], input[type="url"], textarea {
-    width: 100%;
+    position: relative;
+    left: 80px;
+    width: 70%;
     padding: 10px;
     margin: 8px 0 15px 0;
     border: 1px solid #ccc;
@@ -38,20 +65,79 @@ textarea {
 }
 
 button[type="submit"] {
-    background-color: #007bff;
-    color: white;
+    position: relative;
+    left: 160px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    transition: 0.3s;
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    color: white;
+    background-color: rgb(16, 119, 255);
+    box-shadow: 3px 0px 14px rgba(1, 206, 206, 0.3);
 }
 
-footer {
+/* Caixa de consulta */
+.caixa {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 0%, rgb(83, 91, 192) -10%, rgb(37, 65, 117) 90%);
+    border: 2px solid rgb(0, 0, 0);
+    width: 200px; /* Tamanho ajustado para a caixa */
+    height: auto; /* Tamanho ajustado para se adaptar ao conteúdo */
+    border-radius: 7px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixador {
+    width: 100%;
+    height: 30px;
+    padding: 6px 5px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+.caixa a {
+    text-decoration: none;
+    display: block;
     text-align: center;
-    margin-top: 30px;
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.6s;
+}
+
+.caixa a:hover {
+    color: white;
+    border: none;
+    background-color: rgb(16, 119, 255);
+    box-shadow: 3px 0px 14px rgba(1, 206, 206, 0.3);
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .form-consulta-container {
+        flex-direction: column;
+        gap: 20px; /* Reduz o espaço entre os elementos em telas menores */
+    }
+
+    form {
+        width: 100%;
+        max-width: 400px; /* Ajusta o tamanho máximo do formulário */
+    }
+
+    .caixa {
+        width: 100%;
+        max-width: 400px; /* Ajusta o tamanho máximo da caixa de consulta */
+    }
 }

@@ -1,46 +1,66 @@
-{% load static%}
+{% load static %}
 
+<!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Online</title>
-    <link rel="stylesheet" href="{% static 'todos/css/carrinho.css'%}">
+    <link rel="stylesheet" href="{% static 'todos/css/carrinho.css' %}">
+    <script src="https://kit.fontawesome.com/13d0897c8c.js" crossorigin="anonymous"></script>
+    <title>Carrinho de Compras</title>
 </head>
-<body>
-    <header>
-        <h1>Loja Online</h1>
-        <button onclick="toggleCart()">Ver Carrinho (<span id="cart-count">0</span>)</button>
-    </header>
+<header>
+    <h1>FutStyle</h1> <!--título do site-->
+    <a href="{% url 'home' %}" class="voltar" title="Voltar para a página inicial">
+        <i class="fa-solid fa-reply"></i>
+    </a>
+    
 
-    <main>
-        <section class="produtos">
-            <div class="produto" data-id="1" data-nome="Produto 1" data-preco="60">
-                <h3>Produto 1</h3>
-                <p>Preço: R$ 60,00</p>
-                <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
-            </div>
-            <div class="produto" data-id="2" data-nome="Produto 2" data-preco="120">
-                <h3>Produto 2</h3>
-                <p>Preço: R$ 120,00</p>
-                <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
-            </div>
-        </section>
+<!-- Carrinho -->
+<div class="carrinho-container">
+    <table class="tabela-carrinho">
+        <thead>
+            <tr>
+                <th>Imagem</th>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for codproduto, item in carrinho.items %}
+                <tr>
+                    <td><img src="{{ item.imagem_url }}" class="produto-imagem" alt="Imagem do Produto"></td>
+                    <td>{{ item.nome }}</td>
+                    <td>R$ {{ item.preco }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td>R$ {{ item.preco}}</td>
+                    <td><a href="{% url 'remover_do_carrinho' codproduto %}" class="remover-btn">Remover</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-        <section id="carrinho" class="carrinho hidden">
-            <h2>Seu Carrinho</h2>
-            <div id="cart-items"></div>
-            <p>Total: R$ <span id="cart-total">0.00</span></p>
-            <button onclick="finalizarCompra()">Finalizar Compra</button>
-        </section>
-    </main>
+    <!-- Adicionar código de desconto -->
+    <div class="desconto">
+        <form action="{% url 'aplicar_desconto' %}" method="POST">
+            {% csrf_token %}
+            <label for="codigo_desconto">Código de Desconto:</label>
+            <input type="text" id="codigo_desconto" name="codigo_desconto" placeholder="Digite o código">
+            <button type="submit" class="button1">Aplicar Desconto</button>
+        </form>
+    </div>
 
-    <script src="../script.js"></script>
+    <!-- Total do Carrinho -->
+    <div class="total-carrinho">
+        <h3>Total: R$ {{total_carrinho}}</h3>
+        <h3>Desconto: R$ {{ desconto|default:0 }}</h3>
+        <h3>Total com Desconto: R$ {{ total_com_desconto }}</h3>
+    </div>
+</div>
 
 
-
-
-
-
-</body>
-</html> 
+</html>

@@ -16,7 +16,7 @@
         <h1>FutStyle</h1> <!--título do site-->
         <div id="botao"> <!--conteiner para os dropdown-->
             <a href="{% url 'carrinho'%}" class="link1"><i class="fa-solid fa-cart-shopping"></i><!--ícone-carrinho--></a>
-            <a href="#" class="link1"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://web.whatsapp.com/" class="link1"><i class="fa-solid fa-phone"></i></a>
             <a href="{% url 'produtos'%}" class="link3"><i class="fa-solid fa-boxes-stacked"></i></a>
             <a href="{% url 'login'%}" class="link2"><i class="fa-solid fa-user"></i></a>
         </div>
@@ -35,81 +35,23 @@
 <!--FIM-->
 
 <!--ÁREA PRINCIPAL-->
-<main> 
-    <section class="vitrine"> <!--agrupamento -->
-
-        <!--cada div vai ter um produto-->
-
-        <div class="item" data-nome="{{ produtos.0.produto_nome }}"> <!--data- é usado para dados personalizado -->
-            <img src="{{ produtos.0.imagem_url}} alt="Produto 1"> 
-            <h3>{{ produtos.0.produto_nome}}</h3>
-            <h4> {{ produtos.0.descricao}}</h4><br> 
-            <p class="preco">R$ {{produtos.0.preco}}<br> <p class="quant">{{produtos.0.produto_quantidade}} em estoque!</p></p> <br>
-            <button onclick="adicionarAoCarrinho({{ produtos.codproduto }})">Adicionar ao Carrinho</button>
-
+<main>
+    <section class="vitrine">
+        <!-- Loop para iterar sobre a lista de produtos -->
+        {% for produto in produtos %}
+        <div class="item" data-nome="{{ produto.produto_nome }}">
+            <img src="{{ produto.imagem_url }}" alt="{{ produto.produto_nome }}">
+            <h3>{{ produto.produto_nome }}</h3>
+            <h4>{{ produto.descricao }}</h4><br>
+            <p class="preco">R$ {{ produto.preco }}<br>
+                <p class="quant">{{ produto.produto_quantidade }} em estoque!</p>
+            </p><br>
+            <a href="{% url 'adicionar_ao_carrinho' produto.codproduto %}" class="button1">Adicionar ao Carrinho</a>
         </div>
-
-        <div class="item" data-nome="{{ produtos.1.produto_nome}}">
-            <img src="{{produtos.1.imagem_url}}" alt="Produto 2"> 
-            <h3>{{produtos.1.produto_nome}}</h3><br>
-            <p class="preco">R$ {{produtos.1.preco}}<br> <p class="quant">{{produtos.1.produto_quantidade}} em estoque!</p></p> <br>
-            <button onclick="adicionarAoCarrinho({{ produtos.codproduto }})">Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="item" data-nome="sport">
-            <img src="{% static 'todos/img/camisa-sport-2.jpg' %}" alt="Produto 3">
-            <h3>Camisa Sport Clube Branca</h3><br>
-            <p class="preco">R$ 279,99</p> <br>
-            <button class="botão">Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="item" data-nome="Vasco">
-            <img src="{% static 'todos/img/camisa-vasco-1.jpg' %}" alt="Produto 4">
-            <h3>Camisa Vasco Branca</h3><br>
-            <p class="preco">R$ 120,99</p> <br>
-            <button class="botão">Adicionar ao Carrinho</button>
-        </div>
-        
-        <div class="item" data-nome="brasil">
-            <img src="{% static 'todos/img/camisa-brasil.jpg'%}" alt="Produto 4">
-            <h3>Camisa Brasil</h3><br>
-            <p class="preco">R$ 120,99</p> <br>
-            <button class="botão">Adicionar ao Carrinho</button>
-        </div>
-        <div class="baixo">
-        <div class="item" data-nome="real Madrid">
-            <img src="{% static 'todos/img/camisa-realmadrid.jpg'%}" alt="Produto 4">
-            <h3>Camisa Real Madrid</h3><br>
-            <p class="preco">R$ 120,99</p> <br>
-            <button class="botão">Adicionar ao Carrinho</button>
-        </div>
-        <div class="item" data-nome="paris saint germain">
-            <img src="{% static 'todos/img/camisa-paris.jpg'%}" alt="Produto 4">
-            <h3>Camisa paris saint-germain </h3><br>
-            <p class="preco">R$ 120,99</p> <br>
-            <button class="botão">Adicionar ao Carrinho</button>
-        </div>
-        <div class="item" data-nome="barcelona">
-            <img src="{% static 'todos/img/camisa-barcelona.jpg'%}" alt="Produto 4">
-            <h3>Camisa Barcelona</h3><br>
-            <p class="preco">R$ 120,99</p> <br>
-            <button class="botão">Adicionar ao Carrinho</button>
-        </div>
-        <div class="item" data-nome="juventus">
-            <img src="{% static 'todos/img/camisa-juventus.jpg'%}" alt="Produto 4">
-            <h3>Camisa Juventus</h3><br>
-            <p class="preco">R$ 120,99</p> <br>
-            <button class="botão">Adicionar ao Carrinho</button>
-        </div>
-        <div class="item" data-nome="arsenal">
-            <img src="{% static 'todos/img/camisa-arsenal.jpg'%}" alt="Produto 4">
-            <h3>Camisa Arsenal</h3><br>
-            <p class="preco">R$ 120,99</p> <br>
-            <button class="botão">Adicionar ao Carrinho</button>
-        </div>
-        </div>
+        {% endfor %}
     </section>
 </main>
+
 <!--FIM-->
 <script src="{% static 'todos/js/home.js' %}"></script>
 

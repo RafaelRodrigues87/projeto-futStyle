@@ -1,33 +1,167 @@
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+/* Resetando estilos e definindo fontes */
+*
+/* RESET BÁSICO */
+* {
+    text-decoration: none;
     padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color:  rgb(210, 210, 210);
+}
+/* Estilo do cabeçalho */
+header h1 {
+    font-size: 50px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 20px 80px;
+    position: relative;
+    top: 15px;
+    color: rgb(38, 90, 168);
+
+
+
+    
+}
+i{
+    position: relative;
+    top: 30px;
+    font-size: 50px;
+    color: rgb(12, 3, 35);
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container principal */
+.carrinho-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabela do carrinho */
+.tabela-carrinho {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.tabela-carrinho th, .tabela-carrinho td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.tabela-carrinho th {
+    background-color: #f7f7f7;
+    color: #444;
+}
+
+.tabela-carrinho td img {
+    max-width: 60px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.tabela-carrinho td {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Link para remover produto */
+.remover-btn {
+    text-decoration: none;
+    color: #d9534f;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.remover-btn:hover {
+    color: #c9302c;
+}
+
+/* Formulário de desconto */
+.desconto {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
     align-items: center;
 }
 
-.produtos, .carrinho {
-    padding: 1rem;
+.desconto input {
+    padding: 10px;
+    font-size: 16px;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-.produto, .cart-item {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    margin-bottom: 1rem;
+.desconto button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.hidden {
-    display: none;
+.desconto button:hover {
+    background-color: #4cae4c;
 }
 
-.carrinho {
-    border-top: 2px solid #333;
+/* Total do carrinho */
+.total-carrinho {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.total-carrinho h3 {
+    margin: 5px;
+    color: #333;
+}
+
+.total-carrinho h3:last-child {
+    color: #f60; /* Cor para o total com desconto */
+}
+
+.total-carrinho h3:first-child {
+    color: #333;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .carrinho-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .desconto {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .desconto input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .total-carrinho {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

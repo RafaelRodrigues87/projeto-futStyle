@@ -31,10 +31,12 @@ class Cliente(models.Model):
         super().save(*args, **kwargs) # Chama o método save original da classe pai (Model)
 
 class ClienteVip(Cliente):
+    # Método para calcular o desconto em um produto
     def desconto(self, produto):
-        # Verificando se o produto é uma instância da classe Produto
+        # Verifica se o argumento é uma instância de Produto
         if isinstance(produto, Produto):
-            return Produto.preco - (Produto.preco * 0.1)
+            # Calcula o desconto de 20% no preço do produto
+            return produto.preco - (produto.preco * 0.2)
         else:
             raise ValueError("O argumento deve ser uma instância de Produto.")
         

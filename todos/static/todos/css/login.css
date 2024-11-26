@@ -4,7 +4,7 @@
 body{
     background: linear-gradient(to left, #a8d8ea, #1e3a8a);
 }
-    
+
 div{
     display: flex;
     flex-direction: column; /* alinha os elementos verticalmente*/
@@ -38,7 +38,7 @@ label{
 }
 input, button, label{
     position: relative;
-    top: 20px;
+    top: 10px;
     width: 100%;/* Faz com que os inputs ocupem toda a largura do form */
     max-width: 300px;/* Limita a largura máxima dos inputs */
 }
@@ -84,11 +84,21 @@ button:hover{
     height: 430px;
     top: 70px;
 }
-.crie{
+.crie1, .crie2{
     position: relative;
+    left: -4px;
     top: 32px;
     font-size: 15px;
     color: rgb(255, 255, 255);
+    
+}
+.voltar{
+    text-decoration: none;
+    position: relative;
+    top: -416px;
+    left: -645px;
+    font-size: 20px;
+    color:  white;
 }
 a{
     position: relative;
@@ -101,10 +111,6 @@ a{
     top: 20px;
     font-size: 14px;
 }
-.voltar{
-    text-decoration: none;
-    position: relative;
-    top: -387px;
-    left: -643px;
-    font-size: 20px;
+.info{
+    font-size: 19px;
 }

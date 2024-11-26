@@ -1,0 +1,82 @@
+/* Estilo geral para todos os elementos */
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box; /* Certifique-se de que padding e border não afetam o tamanho dos elementos */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do título h1 */
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Estilo do body */
+body {
+    background-color: rgb(224, 218, 210);
+    padding: 0 20px; /* Adiciona espaçamento horizontal para o body */
+}
+
+/* Estilo do ul */
+ul {
+    background-color: cornflowerblue;
+    list-style-type: none; /* Remove o marcador da lista */
+    padding: 20px; /* Adiciona espaçamento interno no contêiner da lista */
+    margin-bottom: 30px; /* Adiciona espaçamento na parte inferior da lista */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+}
+
+/* Estilo para cada item da lista */
+li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px; /* Espaçamento entre os itens da lista */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar os itens */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito de hover para cada item */
+li:hover {
+    transform: translateY(-5px); /* Move o item para cima ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra mais forte ao passar o mouse */
+}
+
+/* Estilo para links */
+li a {
+    color: #4CAF50; /* Cor verde */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+li a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+/* Espaçamento entre os itens da lista */
+li div {
+    margin-bottom: 10px;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    li {
+        padding: 10px;
+    }
+
+    ul {
+        padding: 10px;
+    }
+}

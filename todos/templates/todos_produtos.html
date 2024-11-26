@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'todos/css/lista_produtos.css' %}">
+    <title>Todos os Produtos</title>
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+
+    <ul>
+        {% for produto in produtos %}
+            <li>
+                <h3>Produto ID: {{ produto.0 }} </h3>  <br> Nome: {{ produto.4 }} - <br> Preço: R$ {{ produto.1 }} - <br> Quantidade: {{produto.2}} - <br>Descrição: {{produto.3}}-
+                link : {{produto.5}}<br>
+                ------------------------------------------------------------------------------
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

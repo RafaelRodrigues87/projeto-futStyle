@@ -8,6 +8,11 @@
 body{
     background: linear-gradient(to left, #a8d8ea, #1e3a8a);
 }
+.form{
+    position: relative;
+    top: -50px;
+}
+
 div{
     display: flex;
     flex-direction: column; /* alinha os elementos verticalmente*/
@@ -56,6 +61,7 @@ input{
 input, label{
     position: relative;
     top: -16px;
+    
 }
 input, button{
     height: 20px;
@@ -94,6 +100,9 @@ button:hover {
     padding:25px;
 }
 .voltar{
+    position: relative;
+    left: -2px;
+    top: 3px;
     font-size: 20px;
     color: white;
 }

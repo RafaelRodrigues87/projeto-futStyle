@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'todos/css/lista_produtos.css' %}">
+    <title>Lista de Clientes</title>
+</head>
+<body>
+    <h1>Lista de Clientes</h1>
+
+    <ul>
+        {% for cliente in clientes %}
+            <li>
+                <h3>Cliente ID: {{ cliente.0 }}</h3>
+                <p>Nome: {{ cliente.1 }}</p>
+                <p>Endereço: {{ cliente.2 }}</p>
+                <p>Telefone: {{ cliente.3 }}</p>
+                <p>Email: {{ cliente.4 }}</p>
+                <p>CPF: {{ cliente.5 }}</p>
+                <p>Data de Nascimento: {{ cliente.6 }}</p>
+                <p>Data de Cadastro: {{ cliente.7 }}</p>
+                <p>Saldo: R$ {{ cliente.7 }}</p>  <!-- Corrigido para _saldo -->
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
